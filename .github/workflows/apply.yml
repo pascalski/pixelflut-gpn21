@@ -1,0 +1,30 @@
+name: Apply terraform plan
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    name: Apply terraform plan
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: terraform apply
+        uses: dflook/terraform-apply@v1
+        with:
+          path: my-terraform-config
+          auto_approve: true
+          variables: |
+              access_key = "${{ secrets.ACCESS_KEY }}"
+              secret_key = "${{ secrets.SECRET_KEY }}"
+              location = "eu-central-1"
