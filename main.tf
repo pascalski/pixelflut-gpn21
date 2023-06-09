@@ -100,7 +100,7 @@ resource "aws_security_group" "web_sg" {
 
 resource "aws_key_pair" "leon" {
   key_name   = "leon-key"
-  public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFul1dKr5rwuqpkj2uucuh0x4QLyASfyvyddqTDXYKGDr"
+  public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFul1dKr5rwuqpkj2uucuh0x4QLyASfyvyddqTDXYKGD"
 }
 
 resource "aws_instance" "public_instance" {
